@@ -1,0 +1,9 @@
+{
+  "policy_frequency": 10,
+  "action": {
+    "type": "ContinuousAction"
+  },
+  "duration": 40,
+  "others": "DiscreteMetaAction",
+  "others2": "ContinuousAction"
+}

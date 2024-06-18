@@ -1,0 +1,7 @@
+{
+  "frequency": 10,
+  "action": {
+    "type": "ContinuousAction"
+  },
+  "others": "DiscreteMetaAction"
+}
