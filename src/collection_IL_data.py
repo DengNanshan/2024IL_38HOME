@@ -8,9 +8,13 @@ import json
 env = gym.make('highway-v0', render_mode="rgb_array")
 
 
+conf_path = "conf/HighwayConf_Agg.json"
+data_file_path = "data/IL_data_Agg5.csv"
+episode = 5
+
 """读取配置文件"""
 import json
-with open("conf/HighwayConf_Discrete.json", "r") as f:
+with open(conf_path, "r") as f:
     conf_str = f.read()
 conf = json.loads(conf_str)
 env.configure(conf)
@@ -18,8 +22,8 @@ env.configure(conf)
 env.reset()
 
 count =0
-episode = 100
-with open("data/IL_data100.csv", mode="w",newline='') as f:
+
+with open(data_file_path, mode="w",newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["state","action"])
     for i in range(episode):

@@ -4,7 +4,7 @@
     "type": "DiscreteMetaAction"
   },
   "duration": 40,
-  "other_vehicles_type": "highway_env.vehicle.behavior.IDMVehicle",
+  "other_vehicles_type": "highway_env.vehicle.behavior.DnsIDMDefensiveVehicle",
   "others": "DiscreteMetaAction",
   "others2": "ContinuousAction",
   "t": ["DnsIDMNormalVehicle","DnsIDMAggressiveVehicle","DnsIDMDefensiveVehicle"],

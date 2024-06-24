@@ -13,11 +13,19 @@ from ImitationModel import ImitationModel
 import torch
 import matplotlib.pyplot as plt
 
-data_file_path = "data/IL_data_Agg30.csv"
+""""""""""""""""""""""""""""""""""""""""""
+data_files = [
+    "data/IL_data_Agg30.csv",
+    "data/IL_data_Def30.csv",
+    "data/IL_data_Norm30.csv"
+]
+
 conf_path = "conf/ImitationModel.json"
-loss_path = "model/ImitationModel__Agg30_loss.csv"
-sace_model_path="model/ImitationModel_Agg30.pth"
+loss_path = "model/ImitationModel_Mix_5_loss.csv"
+save_model_path="model/ImitationModel__Mix_5.pth"
 epochs = 5
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 def load_data(filename):
     print("loading data")
@@ -37,10 +45,10 @@ def load_muti_file(filenamepath):
         all_action.append(actions)
     combined_states = np.concatenate(all_state, axis=0)
     combined_actions = np.concatenate(all_action, axis=0)
-
+    print("Load all files finished")
     return combined_states, combined_actions
 
-states, actions = load_data(data_file_path)
+states, actions = load_muti_file(data_files)
 
 
 # load config
@@ -63,6 +71,6 @@ with open(loss_path, mode="w",newline='') as f:
 model.draw_loss()
 
 # save model
-model.save(sace_model_path)
+model.save(save_model_path)
 
 

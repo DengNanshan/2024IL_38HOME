@@ -13,12 +13,11 @@ from ImitationModel import ImitationModel
 import torch
 import matplotlib.pyplot as plt
 
-data_file_path = "data/IL_data_Agg30.csv"
+data_file_path = "data/IL_data_Norm30.csv"
 conf_path = "conf/ImitationModel.json"
-loss_path = "model/ImitationModel__Agg30_loss.csv"
-sace_model_path="model/ImitationModel_Agg30.pth"
+loss_path = "model/ImitationModel_Norm30_loss.csv"
+sace_model_path="model/ImitationModel_Norm30.pth"
 epochs = 5
-
 def load_data(filename):
     print("loading data")
     data = pd.read_csv(filename)

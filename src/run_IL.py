@@ -14,7 +14,7 @@ model = ImitationModel(28, 2)
 model.load_state_dict(torch.load("model/ImitationModel_5.pth"))
 # ILModel= torch.load
 
-"""读取配置文件"""
+"""读取化配置文件"""
 env = gym.make('highway-v0', render_mode="rgb_array")
 import json
 with open("conf/HighwayConf_test.json", "r") as f:

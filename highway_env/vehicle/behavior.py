@@ -655,3 +655,90 @@ class DefensiveVehicle(LinearVehicle):
         MERGE_ACC_GAIN / (MERGE_VEL_RATIO * MERGE_TARGET_VEL),
         2.0,
     ]
+
+class DnsIDMAggressiveVehicle(IDMVehicle):
+    def __init__(self,
+                 road: Road,
+                 position: Vector,
+                 heading: float = 0,
+                 speed: float = 0,
+                 target_lane_index: int = None,
+                 target_speed: float = None,
+                 route: Route = None,
+                 enable_lane_change: bool = True,
+                 timer: float = None,
+                 data: dict = None):
+        super().__init__(road, position, heading, speed, target_lane_index, target_speed, route,
+                         enable_lane_change, timer)
+
+
+    DISTANCE_WANTED = 1.0 + ControlledVehicle.LENGTH  # [m]
+    """Desired jam distance to the front vehicle."""
+
+    TIME_WANTED = 1.  # [s]
+    """Desired time gap to the front vehicle."""
+
+    # Lateral policy parameters
+    POLITENESS = 0.  # in [0, 1]
+    LANE_CHANGE_MIN_ACC_GAIN = 0.1  # [m/s2]
+    LANE_CHANGE_MAX_BRAKING_IMPOSED = 6.0  # [m/s2]
+    LANE_CHANGE_DELAY = 0.1  #  [s]
+
+
+
+class DnsIDMDefensiveVehicle(IDMVehicle):
+    def __init__(self,
+                 road: Road,
+                 position: Vector,
+                 heading: float = 0,
+                 speed: float = 0,
+                 target_lane_index: int = None,
+                 target_speed: float = None,
+                 route: Route = None,
+                 enable_lane_change: bool = True,
+                 timer: float = None,
+                 data: dict = None):
+        super().__init__(road, position, heading, speed, target_lane_index, target_speed, route,
+                         enable_lane_change, timer)
+
+
+    DISTANCE_WANTED = 7.0 + ControlledVehicle.LENGTH  # [m]
+    """Desired jam distance to the front vehicle."""
+
+    TIME_WANTED = 2  # [s]
+    """Desired time gap to the front vehicle."""
+
+    # Lateral policy parameters
+    POLITENESS = 0.3  # in [0, 1]
+    LANE_CHANGE_MIN_ACC_GAIN = 0.3  # [m/s2]
+    LANE_CHANGE_MAX_BRAKING_IMPOSED = 2.0  # [m/s2]
+    LANE_CHANGE_DELAY = 1  #  [s]
+
+
+class DnsIDMNormalVehicle(IDMVehicle):
+    def __init__(self,
+                 road: Road,
+                 position: Vector,
+                 heading: float = 0,
+                 speed: float = 0,
+                 target_lane_index: int = None,
+                 target_speed: float = None,
+                 route: Route = None,
+                 enable_lane_change: bool = True,
+                 timer: float = None,
+                 data: dict = None):
+        super().__init__(road, position, heading, speed, target_lane_index, target_speed, route,
+                         enable_lane_change, timer)
+
+
+    DISTANCE_WANTED = 5.0 + ControlledVehicle.LENGTH  # [m]
+    """Desired jam distance to the front vehicle."""
+
+    TIME_WANTED = 1.5  # [s]
+    """Desired time gap to the front vehicle."""
+
+    # Lateral policy parameters
+    POLITENESS = 0.1  # in [0, 1]
+    LANE_CHANGE_MIN_ACC_GAIN = 0.2  # [m/s2]
+    LANE_CHANGE_MAX_BRAKING_IMPOSED = 2.0  # [m/s2]
+    LANE_CHANGE_DELAY = 1  #  [s]

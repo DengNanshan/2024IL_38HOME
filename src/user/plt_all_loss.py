@@ -3,8 +3,7 @@ import numpy as np
 import pandas as pd
 import csv
 
-file_name = "model/ImitationModel_5_loss.csv"
-file_name = "model/ImitationModel_Mix_5_loss.csv"
+file_name = "../model/ImitationModel_5_loss.csv"
 data = pd.read_csv(file_name)
 data = np.array(data)
 plt.figure(1)
@@ -14,7 +13,7 @@ plt.loglog()
 
 
 # 平滑
-def smooth(data, weight=0.9):
+def smooth(data, weight=0.95):
     last = data[0]
     smoothed = []
     for point in data:

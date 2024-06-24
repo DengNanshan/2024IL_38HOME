@@ -1,5 +1,5 @@
 {
-  "input_size": 5,
-  "output_size": 5,
+  "input_size": 28,
+  "output_size": 2,
   "hidden_size": [128,128,128]
 }
