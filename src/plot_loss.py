@@ -6,9 +6,11 @@ import csv
 file_name = "model/ImitationModel_5_loss.csv"
 data = pd.read_csv(file_name)
 data = np.array(data)
+plt.figure(1)
 plt.plot(data[:,0],data[:,1])
+plt.title("raw loss")
 plt.loglog()
-plt.show()
+
 
 # 平滑
 def smooth(data, weight=0.9):
@@ -21,6 +23,8 @@ def smooth(data, weight=0.9):
     return smoothed
 
 smoothed_data = smooth(data[:,1])
+plt.figure(2)
 plt.plot(data[:,0],smoothed_data)
+plt.title("smoothed loss")
 plt.loglog()
 plt.show()

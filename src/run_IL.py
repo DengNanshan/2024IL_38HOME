@@ -25,6 +25,10 @@ obs, info = env.reset()
 
 Done = False
 while not Done:
+    on_road = env.env.env.vehicle.on_road
+    if not on_road:
+        print("off road")
+        break
     env.render()
     state = env.env.env.vehicle.d_get_state()
     s = state["state"].flatten()
@@ -33,6 +37,6 @@ while not Done:
     a = model.forward(s)
     a = a.cpu().detach().numpy()
     obs, reward, Done, T,info = env.step(a)
-    print("time",T)
+
 
 
