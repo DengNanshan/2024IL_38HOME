@@ -1,3 +1,5 @@
+import sys
+sys.path.append('..')
 import highway_env
 highway_env.register_highway_envs()
 import gymnasium as gym

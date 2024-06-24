@@ -1,3 +1,5 @@
+import sys
+sys.path.append('..')
 import highway_env
 highway_env.register_highway_envs()
 import gymnasium as gym
@@ -16,11 +18,12 @@ env.configure(conf)
 env.reset()
 
 count =0
-episode = 5
-with open("data/IL_data5.csv", mode="w",newline='') as f:
+episode = 100
+with open("data/IL_data100.csv", mode="w",newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["state","action"])
     for i in range(episode):
+        print('episode=',i)
         env.reset()
         Done = False
         Track = False
@@ -39,7 +42,7 @@ with open("data/IL_data5.csv", mode="w",newline='') as f:
                 writer.writerow([','.join(map(str, s)),','.join(map(str, a))])
 
 
-            print("time",env.env.time)
+            # print("time",env.env.time)
 env.close()
 
 
