@@ -1,0 +1,12 @@
+{
+  "policy_frequency": 10,
+  "action": {
+    "type": "ContinuousAction"
+  },
+  "duration": 40,
+  "other_vehicles_type": "highway_env.vehicle.behavior.DnsIDMNormalVehicle",
+  "others": "DiscreteMetaAction",
+  "others2": "ContinuousAction",
+  "t": ["DnsIDMNormalVehicle","DnsIDMAggressiveVehicle","DnsIDMDefensiveVehicle"],
+  "t2": "DnsIDMDefensiveVehicle"
+}

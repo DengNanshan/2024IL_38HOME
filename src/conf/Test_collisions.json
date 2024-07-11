@@ -1,0 +1,10 @@
+{
+  "environments": ["conf/HighwayConf_Agg_Cont.json"],
+  "model": "conf/ImitationModel_deep.json",
+  "agents": [
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2.pth"
+  ],
+  "run_times": 100,
+  "test_steps": 1000,
+  "result_path": "results/Test_collisions.csv"
+}

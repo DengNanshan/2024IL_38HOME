@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import csv
 
-file_name = "../model/ImitationModel_5_loss.csv"
+file_name = "../model/loss_log/ImitationModel_5_loss.csv"
 data = pd.read_csv(file_name)
 data = np.array(data)
 plt.figure(1)

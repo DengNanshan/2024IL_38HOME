@@ -9,21 +9,30 @@ import numpy as np
 import pandas as pd
 from ImitationModel import ImitationModel
 import torch
+import json
 
-model = ImitationModel(28, 2)
-model.load_state_dict(torch.load("model/ImitationModel_5.pth"))
+conf_path = "conf/ImitationModel_deep.json"
+env_conf_path = "conf/HighwayConf_Agg_Cont.json"
+moedl_path = "model/ImitationModel_Agg_e100_b128_deep.pth"
+
+with open(conf_path, "r") as f:
+    conf_str = f.read()
+conf = json.loads(conf_str)
+
+model = ImitationModel(config=conf)
+model.load_state_dict(torch.load(moedl_path))
 # ILModel= torch.load
 
 """读取化配置文件"""
 env = gym.make('highway-v0', render_mode="rgb_array")
 import json
-with open("conf/HighwayConf_test.json", "r") as f:
+with open(env_conf_path, "r") as f:
     conf_str = f.read()
 conf = json.loads(conf_str)
 env.configure(conf)
 obs, info = env.reset()
-
 Done = False
+time = 0
 while not Done:
     on_road = env.env.env.vehicle.on_road
     if not on_road:
@@ -35,8 +44,22 @@ while not Done:
     # tenor
     s = torch.Tensor(s).to(model.device)
     a = model.forward(s)
+
     a = a.cpu().detach().numpy()
+    time = time + 0.1
+    # print(a)
+    print(time)
+    t = a[0]
+    a[0] = a[1]
+    a[1] = t
     obs, reward, Done, T,info = env.step(a)
 
+# for vehicle in env.env.road.vehicles[1:]:
+#     state = vehicle.d_get_state()
+#     s = state["state"].flatten()
+#     a = [state["action"]["steering"], state["action"]["acceleration"]]
+#     # 写入文件
+#     # writer.writerow([str(s),str(a)])
+#     writer.writerow([','.join(map(str, s)), ','.join(map(str, a))])
 
 

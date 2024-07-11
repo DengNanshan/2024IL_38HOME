@@ -1,0 +1,42 @@
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_10.pth
+loss tensor(0.0248, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_20.pth
+loss tensor(0.0196, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_30.pth
+loss tensor(0.0174, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_40.pth
+loss tensor(0.0168, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_50.pth
+loss tensor(0.0166, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_60.pth
+loss tensor(0.0165, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_70.pth
+loss tensor(0.0165, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_80.pth
+loss tensor(0.0165, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_90.pth
+loss tensor(0.0165, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2.pth
+loss tensor(0.0165, device='cuda:0', grad_fn=<MseLossBackward0>)
+
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_10.pth data/IL_data_Norm30.csv
+loss tensor(0.0988, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_20.pth data/IL_data_Norm30.csv
+loss tensor(0.1221, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_30.pth data/IL_data_Norm30.csv
+loss tensor(0.1226, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_40.pth data/IL_data_Norm30.csv
+loss tensor(0.1192, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_50.pth data/IL_data_Norm30.csv
+loss tensor(0.1212, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_60.pth data/IL_data_Norm30.csv
+loss tensor(0.1211, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_70.pth data/IL_data_Norm30.csv
+loss tensor(0.1215, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_80.pth data/IL_data_Norm30.csv
+loss tensor(0.1215, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2_checkpoints/ImitationModel_90.pth data/IL_data_Norm30.csv
+loss tensor(0.1214, device='cuda:0', grad_fn=<MseLossBackward0>)
+model/ImitationModel_Agg_e300_ExponentialLR2.pth data/IL_data_Norm30.csv
+loss tensor(0.1214, device='cuda:0', grad_fn=<MseLossBackward0>)
+

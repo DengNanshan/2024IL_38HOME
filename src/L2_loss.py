@@ -9,7 +9,7 @@ from ImitationModel import ImitationModel
 import torch
 from tools.load_data import load_data
 
-data_file_name = "model/ImitationModel_5_loss.csv"
+data_file_name = "model/loss_log/ImitationModel_5_loss.csv"
 model_file_name = "model/ImitationModel_5.pth"
 
 
@@ -53,7 +53,7 @@ while not Done:
 # train model
 model = ImitationModel(28, 2)
 model.train(states, actions, epochs=10, batch_size=64)
-with open("model/ImitationModel_5_loss.csv", mode="w",newline='') as f:
+with open("model/loss_log/ImitationModel_5_loss.csv", mode="w", newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["count","loss"])
     for loss in model.losss:

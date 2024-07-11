@@ -20,10 +20,13 @@ data_files = [
     "data/IL_data_Norm30.csv"
 ]
 
-conf_path = "conf/ImitationModel.json"
-loss_path = "model/ImitationModel_Mix_5_loss.csv"
-save_model_path="model/ImitationModel__Mix_5.pth"
-epochs = 5
+conf_path = "conf/ImitationModel_deep.json"
+loss_path = "model/loss_log/ImitationModel_Mix_e100_b128_loss.csv"
+save_model_path="model/ImitationModel_Mix_e100_b128.pth"
+epochs = 100
+batch_size = 256
+lr = 0.01
+lr_scheduler = True
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -60,7 +63,7 @@ conf = json.loads(conf_str)
 model = ImitationModel(config=conf)
 
 
-model.train(states, actions, epochs=epochs, batch_size=64)
+model.train(states, actions, epochs=epochs, batch_size=batch_size,lr=lr,ir_Scheduler=lr_scheduler)
 with open(loss_path, mode="w",newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["count","loss"])

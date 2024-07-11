@@ -1,0 +1,19 @@
+
+
+————————————————————————————————————————————————
+v2.0.0.0
+- 使用100 epoch，batch size 128，deep model，ExponentialLR2，动作映射到【-5-5】
+- 数据集： IL_data_XXX30.csv
+-model
+ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2.pth
+ImitationModel_Def_e100_b128_deep_range55_ExponentialLR2.pth
+ImitationModel_Norm_e100_b128_deep_range55_ExponentialLR2.pth
+
+————————————————————————————————————————————————
+v1.0.0.0
+- 数据集： IL_data_XXX30.csv
+-model
+ImitationModel_Def30.pth
+ImitationModel_Agg30.pth
+ImitationModel_Norm30.pth
+

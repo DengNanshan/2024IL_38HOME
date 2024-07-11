@@ -1,0 +1,19 @@
+{
+  "environments": ["conf/HighwayConf_Agg_Cont.json"],
+  "model": "conf/ImitationModel_deep.json",
+  "agents": [
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_0.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_10.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_20.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_30.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_40.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_50.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_60.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_70.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_80.pth",
+    "model/ImitationModel_Agg_e100_b128_deep_range55_ExponentialLR2_2_checkpoints/ImitationModel_90.pth"
+  ],
+  "run_times": 20,
+  "test_steps": 1000,
+  "result_path": "results/Test_collisions_agg.csv"
+}

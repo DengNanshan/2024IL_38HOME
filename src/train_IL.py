@@ -12,12 +12,15 @@ import pandas as pd
 from ImitationModel import ImitationModel
 import torch
 import matplotlib.pyplot as plt
+from tools.tools import trans_data2_model
+title = "Agg_e100_b128_deep_range55_ExponentialLR"
 
-data_file_path = "data/IL_data_Agg30.csv"
-conf_path = "conf/ImitationModel.json"
-loss_path = "model/ImitationModel__Agg30_loss.csv"
-sace_model_path="model/ImitationModel_Agg30.pth"
-epochs = 5
+data_file_path = "data/IL_data_"+"Agg30"+".csv"
+conf_path = "conf/ImitationModel_deep.json"
+loss_path = "model/ImitationModel_"+title+"_loss.csv"
+sace_model_path="model/ImitationModel_"+title+".pth"
+epochs = 100
+batch_size = 256
 
 def load_data(filename):
     print("loading data")
@@ -52,7 +55,7 @@ conf = json.loads(conf_str)
 model = ImitationModel(config=conf)
 
 
-model.train(states, actions, epochs=epochs, batch_size=64)
+model.train(states, actions, epochs=epochs, batch_size=batch_size,ir_Scheduler=True,lr=0.001)
 with open(loss_path, mode="w",newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["count","loss"])
