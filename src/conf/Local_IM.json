@@ -1,0 +1,5 @@
+{
+  "input_size": 29,
+  "output_size": 2,
+  "hidden_size": [256,256,256,128]
+}

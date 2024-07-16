@@ -15,8 +15,19 @@ Agg_e300 = "model/loss_log/ImitationModel_Agg_e300_ExponentialLR2_loss.csv"
 Agg_v3 = "model/loss_log/ImitationModel_Agg_v3_loss.csv"
 Norm_v3 = "model/loss_log/ImitationModel_Norm_v3_loss.csv"
 Def_v3 = "model/loss_log/ImitationModel_Def_v3_loss.csv"
-Mix_v3_033 = "model/loss_log/ImitationModel_Mix_v3_033_loss.csv"
-Mix_v3 = "model/loss_log/ImitationModel_Mix_v3_full_loss.csv"
+Mix_v3_033 = "model/loss_log/ImitationModel_mix_v3_033_loss.csv"
+Mix_v3 = "model/loss_log/ImitationModel_mix_v3_full_loss.csv"
+
+
+"""Local"""
+
+Local = "model/loss_log/Local_mix_Local_v3_full_loss.csv"
+Local_033 = "model/loss_log/Local_mix_Local_v3_033_loss.csv"
+
+IP = "model/loss_log/Local_mix_IP_v3_full_loss.csv"
+IP033 = "model/loss_log/Local_mix_IP_v3_033_loss.csv"
+
+
 
 data = pd.read_csv(file_name)
 data = np.array(data)
@@ -33,6 +44,14 @@ Norm_v3 = np.array(pd.read_csv(Norm_v3))
 Def_v3 = np.array(pd.read_csv(Def_v3))
 Mix_v3_033 = np.array(pd.read_csv(Mix_v3_033))
 Mix_v3 = np.array(pd.read_csv(Mix_v3))
+
+
+"Local"
+Local = np.array(pd.read_csv(Local))
+Local_033 = np.array(pd.read_csv(Local_033))
+"IP"
+# IP = np.array(pd.read_csv(IP))
+IP033 = np.array(pd.read_csv(IP033))
 
 # 平滑
 def smooth(data, weight=0.99):
@@ -74,12 +93,32 @@ plt.plot(Def_v3[:,0],smooth(Def_v3[:,1]))
 plt.plot(Mix_v3_033[:,0],smooth(Mix_v3_033[:,1]))
 plt.plot(Mix_v3[:,0],smooth(Mix_v3[:,1]))
 
+plt.plot(Local[:,0],smooth(Local[:,1]))
+plt.plot(Local_033[:,0],smooth(Local_033[:,1]))
+plt.plot(IP033[:,0],smooth(IP033[:,1]))
+
 plt.legend(["ImitationModel_Agg_v3",
             "ImitationModel_Norm_v3",
             "ImitationModel_Def_v3",
             "ImitationModel_Mix_v3_033",
-            "ImitationModel_Mix_v3"])
-plt.semilogy()
-# plt.loglog()
+            "ImitationModel_Mix_v3",
+            "Local",
+            "Local_033",
+            "IP033"])
+# plt.semilogy()
+plt.loglog()
 
+plt.figure(3)
+plt.plot(Mix_v3_033[:,0],smooth(Mix_v3_033[:,1]))
+plt.plot(Mix_v3[:,0],smooth(Mix_v3[:,1]))
+plt.plot(Local[:,0],smooth(Local[:,1]))
+plt.plot(Local_033[:,0],smooth(Local_033[:,1]))
+plt.plot(IP033[:,0],smooth(IP033[:,1]))
+
+plt.legend(["ImitationModel_Mix_v3_033",
+            "ImitationModel_Mix_v3",
+            "Local",
+            "Local_033",
+            "IP033"])
+plt.loglog()
 plt.show()
