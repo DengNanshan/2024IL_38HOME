@@ -1,7 +1,5 @@
 """
-与V1差异在于
-1.调整了退火策略
-2 将空间范围调整到55
+去1/3的数据
 
 """
 
@@ -20,21 +18,22 @@ from ImitationModel import ImitationModel
 import torch
 import matplotlib.pyplot as plt
 from tools.tools import trans_data2_model
-title = "Agg_v3"
+title = "Norm_v3_033"
 
-data_file_path = "data/IL_data_"+"Agg30"+".csv"
+data_file_path = "data/IL_data_"+"Norm30"+".csv"
 conf_path = "conf/ImitationModel_deep.json"
 loss_path = "model/loss_log/ImitationModel_"+title+"_loss.csv"
-sace_model_path="model/ImitationModel_"+title+".pth"
+save_model_path="model/ImitationModel_"+title+".pth"
 checkpoint_path = "model/ImitationModel_"+title+"_checkpoints"
 epochs = 100
 batch_size = 256 # default 256
-check_rate = 1
+check_rate = 5
 
 def load_data(filename):
-    print("loading data")
+    # 读取1/3的数据
+    print("读取1/3的数据loading data")
     data = pd.read_csv(filename)
-    # string to list
+    data = data.sample(frac=1/3)
     states = np.array([ast.literal_eval(state) for state in data["state"]])
     actions = np.array([ast.literal_eval(action) for action in data["action"]])
     print("loading data finished")
@@ -79,6 +78,6 @@ with open(loss_path, mode="w",newline='') as f:
 model.draw_loss()
 
 # save model
-model.save(sace_model_path)
+model.save(save_model_path)
 
 

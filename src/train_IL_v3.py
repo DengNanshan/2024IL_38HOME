@@ -20,12 +20,12 @@ from ImitationModel import ImitationModel
 import torch
 import matplotlib.pyplot as plt
 from tools.tools import trans_data2_model
-title = "Agg_test"
+title = "Norm_v3"
 
-data_file_path = "data/IL_data_"+"Agg30"+".csv"
-conf_path = "conf/ImitationModel_deep_v3.json"
+data_file_path = "data/IL_data_"+"Norm30"+".csv"
+conf_path = "conf/ImitationModel_deep.json"
 loss_path = "model/loss_log/ImitationModel_"+title+"_loss.csv"
-sace_model_path="model/ImitationModel_"+title+".pth"
+save_model_path="model/ImitationModel_"+title+".pth"
 checkpoint_path = "model/ImitationModel_"+title+"_checkpoints"
 epochs = 100
 batch_size = 256 # default 256
@@ -79,6 +79,6 @@ with open(loss_path, mode="w",newline='') as f:
 model.draw_loss()
 
 # save model
-model.save(sace_model_path)
+model.save(save_model_path)
 
 

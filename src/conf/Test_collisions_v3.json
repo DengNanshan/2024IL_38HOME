@@ -1,0 +1,16 @@
+{
+  "environments": ["conf/HighwayConf_Agg_Cont.json",
+        "conf/HighwayConf_Def_Cont.json",
+        "conf/HighwayConf_Norm_Cont.json"],
+  "model": "conf/ImitationModel_deep.json",
+  "agents": [
+    "model/ImitationModel_Agg_v3.pth",
+    "model/ImitationModel_Def_v3.pth",
+    "model/ImitationModel_Norm_v3.pth",
+    "model/ImitationModel_Mix_v3_033.pth",
+    "model/ImitationModel_Mix_v3_full.pth"
+  ],
+  "run_times": 10,
+  "test_steps": 1000,
+  "result_path": "results/Test_collisions_v3.csv"
+}

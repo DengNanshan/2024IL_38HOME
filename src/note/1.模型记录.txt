@@ -1,4 +1,11 @@
+_________________________________
+v3.
 
+ImitationModel_Agg_v3.pth
+ImitationModel_Def_v3.pth
+ImitationModel_Norm_v3.pth
+ImitationModel_Mix_v3_033.pth
+ImitationModel_Mix_v3_full.pth
 
 ————————————————————————————————————————————————
 v2.0.0.0
@@ -16,4 +23,6 @@ v1.0.0.0
 ImitationModel_Def30.pth
 ImitationModel_Agg30.pth
 ImitationModel_Norm30.pth
+
+
 

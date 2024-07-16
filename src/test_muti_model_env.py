@@ -16,8 +16,9 @@ import json
 from tools.tools import *
 
 """读取配置文件"""
-all_conf_path = "conf/Test_collisions_Agg.json"
-all_conf_path = "conf/Test_collisions_Agg_v3.json"
+# all_conf_path = "conf/Test_collisions_Agg.json"
+# all_conf_path = "conf/Test_collisions_Agg_v3.json"
+all_conf_path = "conf/Test_collisions_v3.json"
 
 all_conf = json2dict(all_conf_path)
 model_conf = json2dict(all_conf["model"])

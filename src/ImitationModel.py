@@ -117,7 +117,7 @@ class ImitationModel(nn.Module):
                 IL_Scheduler.step()
                 print(f"Epoch {epoch}, Learning Rate: {IL_Scheduler.get_last_lr()[0]}")
 
-            if (epoch % check_rate) and check_point_path == 0:
+            if (epoch % check_rate == 0) and check_point_path:
                 # 保存检查点
                 checkpoint_path = os.path.join(checkpoint_dir, f"ImitationModel_{epoch}.pth")
                 torch.save({

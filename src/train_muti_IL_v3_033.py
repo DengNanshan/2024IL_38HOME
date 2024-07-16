@@ -12,27 +12,33 @@ import pandas as pd
 from ImitationModel import ImitationModel
 import torch
 import matplotlib.pyplot as plt
-
+from tools.tools import trans_data2_model
 """"""""""""""""""""""""""""""""""""""""""
 data_files = [
     "data/IL_data_Agg30.csv",
     "data/IL_data_Def30.csv",
     "data/IL_data_Norm30.csv"
 ]
-
+title = "mix_v3_033"
 conf_path = "conf/ImitationModel_deep.json"
-loss_path = "model/loss_log/ImitationModel_Mix_e100_b128_loss.csv"
-save_model_path="model/ImitationModel_Mix_e100_b128.pth"
+loss_path = "model/loss_log/ImitationModel_"+title+"_loss.csv"
+save_model_path="model/ImitationModel_"+title+".pth"
+checkpoint_path = "model/ImitationModel_"+title+"_checkpoints"
 epochs = 100
 batch_size = 256
-lr = 0.01
+lr = 0.001
 lr_scheduler = True
+check_rate = 5
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 def load_data(filename):
     print("loading data")
+    print("读取1/3的数据loading data")
     data = pd.read_csv(filename)
+    print("len of data",len(data))
+    data = data.sample(frac=1/3)
+    print("len of sample_data",len(data))
     # string to list
     states = np.array([ast.literal_eval(state) for state in data["state"]])
     actions = np.array([ast.literal_eval(action) for action in data["action"]])
@@ -48,10 +54,11 @@ def load_muti_file(filenamepath):
         all_action.append(actions)
     combined_states = np.concatenate(all_state, axis=0)
     combined_actions = np.concatenate(all_action, axis=0)
-    print("Load all files finished")
+    print("Load all files finished",len(combined_states))
     return combined_states, combined_actions
 
 states, actions = load_muti_file(data_files)
+states, actions = trans_data2_model(states, actions)
 
 
 # load config
@@ -63,10 +70,14 @@ conf = json.loads(conf_str)
 model = ImitationModel(config=conf)
 
 
-model.train(states, actions, epochs=epochs, batch_size=batch_size,lr=lr,ir_Scheduler=lr_scheduler)
+model.train(states, actions, epochs=epochs, batch_size=batch_size,
+            check_point_path=checkpoint_path,
+            lr=lr,
+            ir_Scheduler=lr_scheduler,
+            check_rate=check_rate)
 with open(loss_path, mode="w",newline='') as f:
     writer = csv.writer(f)
-    writer.writerow(["count","loss"])
+    writer.writerow(["count","loss","learning_rate"])
     for loss in model.losss:
         writer.writerow(loss)
 

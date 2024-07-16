@@ -33,6 +33,13 @@ def register_highway_envs():
         entry_point="highway_env.envs:HighwayEnv",
     )
 
+    # highway_env_random_pose.py   dns定义的随机初始化位置
+    register(
+        id="highway-random-pose-v0",
+        entry_point="highway_env.envs:HighwayEnvRandomPose",
+    )
+
+
     register(
         id="highway-fast-v0",
         entry_point="highway_env.envs:HighwayEnvFast",

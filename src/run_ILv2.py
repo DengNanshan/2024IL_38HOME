@@ -17,8 +17,8 @@ import torch
 import json
 from tools.tools import *
 conf_path = "conf/ImitationModel_deep.json"
-env_conf_path = "conf/HighwayConf_Def_Cont.json"
-moedl_path = "model/ImitationModel_Agg_e200_cos_checkpoints/ImitationModel_40.pth"
+env_conf_path = "conf/HighwayConf_Norm_Cont.json"
+moedl_path = "model/ImitationModel_Norm_v3.pth"
 
 with open(conf_path, "r") as f:
     conf_str = f.read()
@@ -60,13 +60,5 @@ while not Done:
     # print(a)
 
     obs, reward, Done, T,info = env.step(a)
-
-# for vehicle in env.env.road.vehicles[1:]:
-#     state = vehicle.d_get_state()
-#     s = state["state"].flatten()
-#     a = [state["action"]["steering"], state["action"]["acceleration"]]
-#     # 写入文件
-#     # writer.writerow([str(s),str(a)])
-#     writer.writerow([','.join(map(str, s)), ','.join(map(str, a))])
 
 
