@@ -19,7 +19,7 @@ data_files = [
     "data/IL_data_Def30.csv",
     "data/IL_data_Norm30.csv"
 ]
-title = "mix_9_IP_v3_033"
+title = "mix_9_IP_v3_full_2"
 conf_path = "conf/Local_IM_9.json"
 loss_path = "model/loss_log/Local_"+title+"_loss.csv"
 save_model_path="model/Local__"+title+".pth"
@@ -49,19 +49,14 @@ IP9 定义了9个区域
 
 """
 def load_data(filename):
-    # print("loading data")
-    # data = pd.read_csv(filename)
-    # print("len of data",len(data))
-    # data1 = data.sample(frac=1/9)
-    # states = np.array([ast.literal_eval(state) for state in data["state"]])
-    # actions = np.array([ast.literal_eval(action) for action in data["action"]])
-    # print("loading data finished")
 
+    print("loading data")
 
     if filename == "data/IL_data_Agg30.csv":
+        print("loading data")
         data = pd.read_csv(filename)
         #
-        data1 = data.sample(frac=1/9)
+        data1 = data.sample(frac=1/3)
         states1 = np.array([ast.literal_eval(state) for state in data1["state"]])
         actions1 = np.array([ast.literal_eval(action) for action in data1["action"]])
         add1 = np.random.random((len(states1), 2))
@@ -70,14 +65,14 @@ def load_data(filename):
         states1 = np.concatenate((states1, add1), axis=1)
 
         #
-        data4 = data.sample(frac=1/9)
+        data4 = data.sample(frac=1/3)
         states4 = np.array([ast.literal_eval(state) for state in data4["state"]])
         actions4 = np.array([ast.literal_eval(action) for action in data4["action"]])
         add4 = np.random.random((len(states4), 2))
         add4[:,1] += 1
         states4 = np.concatenate((states4, add4), axis=1)
         #
-        data9 = data.sample(frac=1/9)
+        data9 = data.sample(frac=1/3)
         states9 = np.array([ast.literal_eval(state) for state in data9["state"]])
         actions9 = np.array([ast.literal_eval(action) for action in data9["action"]])
         add9 = np.random.random((len(states9), 2))
@@ -101,7 +96,7 @@ def load_data(filename):
 """
         data = pd.read_csv(filename)
         #
-        data3 = data.sample(frac=1 / 9)
+        data3 = data.sample(frac=1 / 3)
         states3 = np.array([ast.literal_eval(state) for state in data3["state"]])
         actions3 = np.array([ast.literal_eval(action) for action in data3["action"]])
         add3 = np.random.random((len(states3), 2))
@@ -110,14 +105,14 @@ def load_data(filename):
         states3 = np.concatenate((states3, add3), axis=1)
 
         #
-        data5 = data.sample(frac=1 / 9)
+        data5 = data.sample(frac=1 / 3)
         states5 = np.array([ast.literal_eval(state) for state in data5["state"]])
         actions5 = np.array([ast.literal_eval(action) for action in data5["action"]])
         add5 = np.random.random((len(states5), 2))
 
         states5 = np.concatenate((states5, add5), axis=1)
         #
-        data8 = data.sample(frac=1 / 9)
+        data8 = data.sample(frac=1 / 3)
         states8 = np.array([ast.literal_eval(state) for state in data8["state"]])
         actions8 = np.array([ast.literal_eval(action) for action in data8["action"]])
         add8 = np.random.random((len(states8), 2))
@@ -143,7 +138,7 @@ def load_data(filename):
      """
         data = pd.read_csv(filename)
         #
-        data2 = data.sample(frac=1 / 9)
+        data2 = data.sample(frac=1 / 3)
         states2 = np.array([ast.literal_eval(state) for state in data2["state"]])
         actions2 = np.array([ast.literal_eval(action) for action in data2["action"]])
         add2 = np.random.random((len(states2), 2))
@@ -152,14 +147,14 @@ def load_data(filename):
         states2 = np.concatenate((states2, add2), axis=1)
 
         #
-        data6 = data.sample(frac=1 / 9)
+        data6 = data.sample(frac=1 / 3)
         states6 = np.array([ast.literal_eval(state) for state in data6["state"]])
         actions6 = np.array([ast.literal_eval(action) for action in data6["action"]])
         add6 = np.random.random((len(states6), 2))
         add6[:, 1] -= 1
         states6 = np.concatenate((states6, add6), axis=1)
         #
-        data7 = data.sample(frac=1 / 9)
+        data7 = data.sample(frac=1 / 3)
         states7 = np.array([ast.literal_eval(state) for state in data7["state"]])
         actions7 = np.array([ast.literal_eval(action) for action in data7["action"]])
         add7 = np.random.random((len(states7), 2))
@@ -185,6 +180,7 @@ def load_muti_file(filenamepath):
     return combined_states, combined_actions
 
 states, actions = load_muti_file(data_files)
+print("len(states)",len(states))
 
 """
 states 增加一维
@@ -217,9 +213,9 @@ with open(loss_path, mode="w",newline='') as f:
         writer.writerow(loss)
 
 # draw loss
+model.save(save_model_path)
 model.draw_loss()
 
-# save model
-model.save(save_model_path)
+
 
 #
